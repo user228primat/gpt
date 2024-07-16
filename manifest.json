@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "POST Response Viewer",
+  "version": "1.0",
+  "permissions": [
+    "webRequest",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "View POST Response"
+  }
+}
