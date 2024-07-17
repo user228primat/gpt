@@ -38,48 +38,53 @@ chrome.webRequest.onCompleted.addListener(
 		
 		let arr2 = filteredResponse.results;
 		let game2 = filteredResponse.latest_contest_order;
-		console.log(`index: ${arr_index}`)
 		
-		if(start==false){
-			if (arr2.at(-1)==null){
-				console.log(arr[arr_index]);
-				game1=game2;
-				arr1=arr2;
-				start=true;
-			}
-		}   
-		else{
-			if (arr2.length==arr1.length && game2==game1){
-				if (arr2.at(-1)=="GOAL"){
-					arr_index+=1;
+		if(arr2.length!=0){
+			console.log(arr2);
+			if(start==false){
+				if (arr2.at(-1)==null){
+					console.log(arr[arr_index]);
+					game1=game2;
+					arr1=arr2;
+					start=true;
+				}
+			}   
+			else{
+				if (arr2.length==arr1.length && game2==game1){
+					if (arr2.at(-1)=="GOAL"){
+						arr_index+=1;
+						game1=game2;
+						arr1=arr2;
+					}
+					if (arr2.at(-1)=="MISS"){
+						arr_index=0;
+						game1=game2;
+						arr1=arr2;
+					}
+				}
+
+				if (arr2.length==(arr1.length+1) && game2==game1){
+					if (arr2.at(-1)==null){
+						if (arr2.at(-2)=="MISS"){
+							console.log(arr[arr_index]);
+							game1=game2;
+							arr1=arr2;
+							arr_index=0;
+						}
+						if (arr2.at(-2)=="GOAL"){
+							arr_index+=1;
+							console.log(arr[arr_index]);
+							game1=game2;
+							arr1=arr2;
+						}
+					}
+				}
+
+				if (game2!=game1 && arr2.length==1){
+					console.log(arr[arr_index]);
 					game1=game2;
 					arr1=arr2;
 				}
-				if (arr2.at(-1)=="MISS"){
-					arr_index=0;
-				}
-			}
-
-			if (arr2.length==(arr1.length+1) && game2==game1){
-				if (arr2.at(-1)==null){
-					if (arr2.at(-2)=="MISS"){
-						console.log(arr[arr_index]);
-						game1=game2;
-						arr1=arr2;
-					}
-					if (arr2.at(-2)=="GOAL"){
-						arr_index+=1;
-						console.log(arr[arr_index]);
-						game1=game2;
-						arr1=arr2;
-					}
-				}
-			}
-
-			if (game2!=game1 && arr2.length==1){
-				console.log(arr[arr_index]);
-				game1=game2;
-				arr1=arr2;
 			}
 		}
 		
