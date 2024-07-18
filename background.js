@@ -40,7 +40,6 @@ chrome.webRequest.onCompleted.addListener(
 		let game2 = filteredResponse.latest_contest_order;
 		
 		if(arr2.length!=0){
-			console.log(arr2);
 			if(start==false){
 				if (arr2.at(-1)==null){
 					console.log(arr[arr_index]);
@@ -66,10 +65,10 @@ chrome.webRequest.onCompleted.addListener(
 				if (arr2.length==(arr1.length+1) && game2==game1){
 					if (arr2.at(-1)==null){
 						if (arr2.at(-2)=="MISS"){
+							arr_index=0;
 							console.log(arr[arr_index]);
 							game1=game2;
 							arr1=arr2;
-							arr_index=0;
 						}
 						if (arr2.at(-2)=="GOAL"){
 							arr_index+=1;
