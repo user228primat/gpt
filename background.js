@@ -85,9 +85,11 @@ chrome.webRequest.onCompleted.addListener(
 					arr1=arr2;
 				}
 			}
+			//console.log(arr_index, arr2);
+			// делать sum / проверку на sum
 		}
 		
-		sleep(1000);
+		sleep(200);
       })
       .catch(error => console.error('Error fetching response body:', error));
     }
