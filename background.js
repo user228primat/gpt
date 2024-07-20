@@ -5,6 +5,7 @@ function sleep(millis) {
         i++;
     }
 }
+
 let arr=[25,50,150,325,725,1650]
 let start=false;
 let arr_index=0;
@@ -87,6 +88,8 @@ chrome.webRequest.onCompleted.addListener(
 			}
 			//console.log(arr_index, arr2);
 			// делать sum / проверку на sum
+			chrome.storage.local.set({'index': 228});
+			chrome.storage.local.set({'index': arr_index});
 		}
 		
 		sleep(200);
